@@ -2,7 +2,7 @@ import urllib.request
 import json
 
 # Using the direct path endpoint that works cleanly
-UNIVERSE_ID = 98327545126113
+UNIVERSE_ID = 10769008061
 url = f"https://games.roblox.com/v1/games/{UNIVERSE_ID}/votes"
 
 try:
