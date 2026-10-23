@@ -7,23 +7,23 @@ on:
 
 jobs:
   update-likes:
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
-  steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Run script
-      run: python update_likes.py
+      - name: Run script
+        run: python update_likes.py
 
-    - name: Commit and push if changed
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: "Auto-update game like count"
-        file_pattern: likes.json
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto-update game like count"
+          file_pattern: likes.json
