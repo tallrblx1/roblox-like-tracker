@@ -1,15 +1,15 @@
 import urllib.request
 import json
 
-# Using the direct path endpoint that works cleanly
 UNIVERSE_ID = 640204840
-url = f"https://games.roblox.com/v1/games/{UNIVERSE_ID}/votes"
+url = f"https://games.roblox.com/v1/games/votes?universeIds={UNIVERSE_ID}"
 
 try:
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     with urllib.request.urlopen(req) as response:
         data = json.loads(response.read().decode())
-        upvotes = data['upVotes']
+        # The API returns a list under 'data', we want the upVotes of the first item
+        upvotes = data['data'][0]['upVotes']
         
         output = {"likes": upvotes}
         with open("likes.json", "w") as f:
