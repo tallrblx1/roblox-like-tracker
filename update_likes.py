@@ -1,7 +1,7 @@
 import urllib.request
 import json
 
-UNIVERSE_ID = 640204840
+UNIVERSE_ID = 10769008061
 url = f"https://games.roblox.com/v1/games/votes?universeIds={UNIVERSE_ID}"
 
 try:
