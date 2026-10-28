@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -25,5 +27,6 @@ jobs:
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Auto-update game like count"
+          commit_message: "Auto-update game like counts"
           file_pattern: likes.json
+          skip_ci: true
